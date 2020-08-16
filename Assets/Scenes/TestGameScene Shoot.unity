@@ -468,8 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f8a0448a458f74fb6982be7fbbf150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizMoveSpeed: 50
-  vertiMoveSpeed: 50
+  horizMoveSpeed: 75
+  vertiMoveSpeed: 75
   minHorizontalAngle: -360
   maxHorizontalAngle: 360
   minVerticalAngleLower: 0
@@ -491,6 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPedestalMount: {fileID: 143672012}
+  warpSpeed: 10
 --- !u!1 &532820967
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &551170893
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -854,6 +855,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1567736963}
     m_Modifications:
+    - target: {fileID: 7319840483572714098, guid: 071ffe84adb08504b96202622d9052b1,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319840483572714099, guid: 071ffe84adb08504b96202622d9052b1,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319840483572714099, guid: 071ffe84adb08504b96202622d9052b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c2ef79f77e0c5844b8a0bfab3c7ae9e1, type: 2}
+    - target: {fileID: 7319840483572714099, guid: 071ffe84adb08504b96202622d9052b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b8a53316097953469922cc268a5e600, type: 2}
     - target: {fileID: 7319840484537042577, guid: 071ffe84adb08504b96202622d9052b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -914,7 +935,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pedestal (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7319840483572714093, guid: 071ffe84adb08504b96202622d9052b1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 071ffe84adb08504b96202622d9052b1, type: 3}
 --- !u!4 &847682757 stripped
 Transform:
@@ -1113,11 +1135,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1567736963}
     m_Modifications:
-    - target: {fileID: 7319840483572714093, guid: 071ffe84adb08504b96202622d9052b1,
-        type: 3}
-      propertyPath: popupText
-      value: 
-      objectReference: {fileID: 532820969}
     - target: {fileID: 7319840484537042577, guid: 071ffe84adb08504b96202622d9052b1,
         type: 3}
       propertyPath: m_LocalPosition.x
