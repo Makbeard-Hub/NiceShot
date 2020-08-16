@@ -54,7 +54,7 @@ public class CameraControls : MonoBehaviour
                 newX = -verticalMove * vertiMoveSpeed * Time.deltaTime;
                 rotationX = transform.localEulerAngles.x + newX;
 
-                Debug.Log("Rotation X: " + rotationX);
+                //Debug.Log("Rotation X: " + rotationX);
                 if(rotationX >= 0f && rotationX <= 90f)
                 {
                     rotationX = ClampAngle(rotationX, minVerticalAngleLower, maxVerticalAngleLower);
@@ -66,7 +66,7 @@ public class CameraControls : MonoBehaviour
 
                 }
 
-                Debug.Log("Rotation X(clamped): " + rotationX);
+                //Debug.Log("Rotation X(clamped): " + rotationX);
 
             }
 
