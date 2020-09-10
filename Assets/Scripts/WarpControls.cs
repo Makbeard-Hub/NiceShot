@@ -11,6 +11,7 @@ public class WarpControls : MonoBehaviour
     GameObject nextWarpPoint;
     GameObject currentWarpPoint;
     Camera camera;
+    Animator anim;
 
     [SerializeField] GameObject firstPedestalMount;
     [SerializeField] float warpSpeed = 10f;
@@ -24,6 +25,7 @@ public class WarpControls : MonoBehaviour
         currentWarpPoint = firstPedestalMount;
 
         camera = Camera.main;
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -35,10 +37,16 @@ public class WarpControls : MonoBehaviour
 
         if (isWarping)
         {
+            if (!anim.GetBool("isWarping"))
+            {
+                anim.SetBool("isWarping", true);
+            }
+
             transform.position = Vector3.MoveTowards(transform.position, nextWarpPoint.transform.position, warpSpeed * Time.deltaTime);
             if(Vector3.Distance(transform.position, nextWarpPoint.transform.position) <= 0.1f)
             {
                 isWarping = false;
+            anim.SetBool("isWarping", false);
             }
         }
 

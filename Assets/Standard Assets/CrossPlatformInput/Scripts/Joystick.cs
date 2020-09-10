@@ -35,7 +35,36 @@ namespace UnityStandardAssets.CrossPlatformInput
             m_StartPos = transform.position;
         }
 
-		void UpdateVirtualAxes(Vector3 value)
+        private void Update()
+        {
+            Touch[] taps = Input.touches;
+            if (taps.Length > 0)
+            {
+                Touch lastTap = taps[taps.Length - 1];
+                if(InRestrictedArea(new Vector3(lastTap.position.x, lastTap.position.y, 0)))
+                {
+                    if (lastTap.phase == TouchPhase.Began || lastTap.phase == TouchPhase.Stationary)
+                    {
+                        Vector3 newPos = new Vector3(lastTap.position.x - m_StartPos.x, lastTap.position.y - m_StartPos.y);
+                        transform.position = Vector3.ClampMagnitude(newPos, MovementRange) + m_StartPos;
+                        UpdateVirtualAxes(transform.position);
+
+                        if (lastTap.phase == TouchPhase.Ended)
+                        {
+                            transform.position = m_StartPos;
+                            UpdateVirtualAxes(m_StartPos);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                transform.position = m_StartPos;
+                UpdateVirtualAxes(m_StartPos);
+            }
+        }
+
+        void UpdateVirtualAxes(Vector3 value)
 		{
 			var delta = m_StartPos - value;
 			delta.y = -delta.y;
@@ -100,9 +129,12 @@ namespace UnityStandardAssets.CrossPlatformInput
 		}
 
 
-		public void OnPointerDown(PointerEventData data) { }
+		public void OnPointerDown(PointerEventData data)
+        {
+           
+        }
 
-		void OnDisable()
+        void OnDisable()
 		{
 			// remove the joysticks from the cross platform input
 			if (m_UseX)
@@ -114,5 +146,18 @@ namespace UnityStandardAssets.CrossPlatformInput
 				m_VerticalVirtualAxis.Remove();
 			}
 		}
+
+        bool InRestrictedArea(Vector3 touchedPos)
+        {
+            if (Vector3.Distance(touchedPos, m_StartPos) <= MovementRange)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
 	}
 }

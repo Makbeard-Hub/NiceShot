@@ -35,8 +35,6 @@ public class CameraControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0)
-        {
             // Horizontal Motion
             float horizontalMove = CrossPlatformInputManager.GetAxis("Horizontal");
             if(Mathf.Abs(horizontalMove) >= horizontalSensitivity)
@@ -68,7 +66,7 @@ public class CameraControls : MonoBehaviour
 
                 //Debug.Log("Rotation X(clamped): " + rotationX);
 
-            }
+            
 
             Quaternion newQuat = Quaternion.Euler(rotationX, rotationY, 0f);
             transform.rotation = newQuat;
