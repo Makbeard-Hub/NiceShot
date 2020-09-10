@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: c051fe5a20f72814f9643eb10ebbd2fc, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d1fdb8e44b28da34d9e922cca0bc740e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -879,6 +879,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1567736963}
     m_Modifications:
+    - target: {fileID: 439516773, guid: 071ffe84adb08504b96202622d9052b1, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 439516773, guid: 071ffe84adb08504b96202622d9052b1, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.1545527
+      objectReference: {fileID: 0}
+    - target: {fileID: 439516773, guid: 071ffe84adb08504b96202622d9052b1, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7319840483572714098, guid: 071ffe84adb08504b96202622d9052b1,
         type: 3}
       propertyPath: m_IsTrigger
@@ -2080,18 +2092,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1567736963}
     m_Modifications:
-    - target: {fileID: 439516773, guid: 071ffe84adb08504b96202622d9052b1, type: 3}
-      propertyPath: lengthInSec
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 439516773, guid: 071ffe84adb08504b96202622d9052b1, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 439516773, guid: 071ffe84adb08504b96202622d9052b1, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7319840484537042577, guid: 071ffe84adb08504b96202622d9052b1,
         type: 3}
       propertyPath: m_LocalPosition.x
